@@ -1,25 +1,164 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R4m-ml-B6o">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="dlt-Ek-GQD">
+            <objects>
+                <navigationController id="R4m-ml-B6o" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gHE-eG-JEG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1450980392" green="0.28235294119999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8mE-e2-w13" kind="relationship" relationship="rootViewController" id="Qw9-cg-XSq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ADK-cb-7jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-736" y="-449"/>
+        </scene>
+        <!--Ag Survey-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Ag Survey" id="BYZ-38-t0r" customClass="SurveyViewController" customModule="Mankato_Kiosk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Ag Survey" id="DpE-sd-Fwg">
+                        <barButtonItem key="rightBarButtonItem" title="Admin" id="uaF-8R-tsy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="adminCheck:" destination="BYZ-38-t0r" id="eeN-pD-f4y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="TMc-0j-flL" kind="show" identifier="adminSegue" id="8id-LE-Gin"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="409" y="531"/>
+        </scene>
+        <!--Ag Inspire Kiosk-->
+        <scene sceneID="T95-9P-4yd">
+            <objects>
+                <viewController id="8mE-e2-w13" customClass="ViewController" customModule="Mankato_Kiosk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DPj-7Z-SJi"/>
+                        <viewControllerLayoutGuide type="bottom" id="T2K-p4-GEh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qNo-N7-Szk">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozD-fu-bBR">
+                                <rect key="frame" x="355" y="462" width="314" height="78"/>
+                                <state key="normal" image="Survey Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="0YN-Bb-zNu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Will you help us grow the Grow It Gallery?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdv-QX-Sj1">
+                                <rect key="frame" x="20" y="148" width="984" height="42"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZS9-uY-AXp">
+                                <rect key="frame" x="73" y="238" width="878" height="108"/>
+                                <string key="text">The Children’s Museum of Southern Minnesota plans to add several exhibits aimed at older children, ages 9–12, as well as adults. We’d love your help in determining which subjects interest you.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ag Inspire Kiosk" id="NuR-c3-nVs"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="ZS9-uY-AXp" id="y4p-My-xwi"/>
+                        <outlet property="titleLabel" destination="bdv-QX-Sj1" id="Jad-lJ-te0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beI-yB-SoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="-373"/>
+        </scene>
+        <!--Survey Admin View Controller-->
+        <scene sceneID="hTG-wd-V4G">
+            <objects>
+                <viewController id="TMc-0j-flL" customClass="SurveyAdminViewController" customModule="Mankato_Kiosk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w6f-zf-asC"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lr-Tu-A6L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0wC-ay-rX7">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Farm Background" translatesAutoresizingMaskIntoConstraints="NO" id="oC2-Gl-3NJ">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEE-xw-dtc">
+                                <rect key="frame" x="84" y="141" width="385" height="78"/>
+                                <state key="normal" image="Download Questions"/>
+                                <connections>
+                                    <action selector="getSurveyQuestions:" destination="TMc-0j-flL" eventType="touchUpInside" id="xXL-X7-IPk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-ez-2ht">
+                                <rect key="frame" x="578" y="141" width="385" height="78"/>
+                                <state key="normal" image="Email Button"/>
+                                <connections>
+                                    <action selector="emailData:" destination="TMc-0j-flL" eventType="touchUpInside" id="e5y-Gz-OGL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oC2-Gl-3NJ" firstAttribute="leading" secondItem="0wC-ay-rX7" secondAttribute="leadingMargin" constant="-20" id="7Mc-Oj-9P2"/>
+                            <constraint firstItem="jEE-xw-dtc" firstAttribute="leading" secondItem="0wC-ay-rX7" secondAttribute="leadingMargin" constant="70" id="B66-bt-0Zn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nyW-ez-2ht" secondAttribute="trailing" constant="70" id="HfQ-9b-YrM"/>
+                            <constraint firstItem="jEE-xw-dtc" firstAttribute="top" secondItem="w6f-zf-asC" secondAttribute="bottom" constant="77" id="Tyi-r1-FiI"/>
+                            <constraint firstItem="nyW-ez-2ht" firstAttribute="top" secondItem="w6f-zf-asC" secondAttribute="bottom" constant="77" id="Yr8-HI-TN5"/>
+                            <constraint firstItem="8lr-Tu-A6L" firstAttribute="top" secondItem="oC2-Gl-3NJ" secondAttribute="bottom" id="i9G-dx-t6j"/>
+                            <constraint firstItem="oC2-Gl-3NJ" firstAttribute="top" secondItem="0wC-ay-rX7" secondAttribute="topMargin" id="oP3-42-bSZ"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCb-qj-jQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="402"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Download Questions" width="383" height="78"/>
+        <image name="Email Button" width="383" height="78"/>
+        <image name="Farm Background" width="1024" height="768"/>
+        <image name="Survey Button" width="310" height="78"/>
+    </resources>
 </document>

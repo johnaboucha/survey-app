@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C10E65A1BC49A5A0092D9E3 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C10E6571BC494F90092D9E3 /* Montserrat-Bold.otf */; };
 		4C1A87861BC074B200C10262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A87851BC074B200C10262 /* AppDelegate.swift */; };
 		4C1A87881BC074B200C10262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A87871BC074B200C10262 /* ViewController.swift */; };
 		4C1A878B1BC074B200C10262 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1A87891BC074B200C10262 /* Main.storyboard */; };
 		4C1A878E1BC074B200C10262 /* Mankato_Kiosk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A878C1BC074B200C10262 /* Mankato_Kiosk.xcdatamodeld */; };
 		4C1A87901BC074B200C10262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1A878F1BC074B200C10262 /* Assets.xcassets */; };
 		4C1A87931BC074B200C10262 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1A87911BC074B200C10262 /* LaunchScreen.storyboard */; };
+		4C1A879B1BC075D700C10262 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A879A1BC075D700C10262 /* SurveyViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1A879D1BC07A6400C10262 /* SurveyAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A879C1BC07A6400C10262 /* SurveyAdminViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1A87A01BC07C5100C10262 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A879F1BC07C5100C10262 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1EFB8C1BCDD5AD0046526C /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1EFB8B1BCDD5AD0046526C /* CustomScrollView.swift */; settings = {ASSET_TAGS = (); }; };
+		4C6030D01BC1BB5900BF4E56 /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6030CE1BC1BB5900BF4E56 /* SSRadioButton.swift */; settings = {ASSET_TAGS = (); }; };
+		4C6030D11BC1BB5900BF4E56 /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6030CF1BC1BB5900BF4E56 /* SSRadioButtonsController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C10E6571BC494F90092D9E3 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		4C1A87821BC074B200C10262 /* Mankato Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mankato Kiosk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1A87851BC074B200C10262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C1A87871BC074B200C10262 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +32,12 @@
 		4C1A878F1BC074B200C10262 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1A87921BC074B200C10262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1A87941BC074B200C10262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C1A879A1BC075D700C10262 /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		4C1A879C1BC07A6400C10262 /* SurveyAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyAdminViewController.swift; sourceTree = "<group>"; };
+		4C1A879F1BC07C5100C10262 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		4C1EFB8B1BCDD5AD0046526C /* CustomScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		4C6030CE1BC1BB5900BF4E56 /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
+		4C6030CF1BC1BB5900BF4E56 /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C10E6561BC494E20092D9E3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4C10E6571BC494F90092D9E3 /* Montserrat-Bold.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		4C1A87791BC074B100C10262 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +78,9 @@
 		4C1A87841BC074B200C10262 /* Mankato Kiosk */ = {
 			isa = PBXGroup;
 			children = (
+				4C10E6561BC494E20092D9E3 /* Fonts */,
+				4C6030CD1BC1BB4A00BF4E56 /* RadioButton */,
+				4C1A879E1BC07C3400C10262 /* SwiftyJSON */,
 				4C1A87851BC074B200C10262 /* AppDelegate.swift */,
 				4C1A87871BC074B200C10262 /* ViewController.swift */,
 				4C1A87891BC074B200C10262 /* Main.storyboard */,
@@ -63,8 +88,28 @@
 				4C1A87911BC074B200C10262 /* LaunchScreen.storyboard */,
 				4C1A87941BC074B200C10262 /* Info.plist */,
 				4C1A878C1BC074B200C10262 /* Mankato_Kiosk.xcdatamodeld */,
+				4C1A879A1BC075D700C10262 /* SurveyViewController.swift */,
+				4C1A879C1BC07A6400C10262 /* SurveyAdminViewController.swift */,
+				4C1EFB8B1BCDD5AD0046526C /* CustomScrollView.swift */,
 			);
 			path = "Mankato Kiosk";
+			sourceTree = "<group>";
+		};
+		4C1A879E1BC07C3400C10262 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				4C1A879F1BC07C5100C10262 /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		4C6030CD1BC1BB4A00BF4E56 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				4C6030CE1BC1BB5900BF4E56 /* SSRadioButton.swift */,
+				4C6030CF1BC1BB5900BF4E56 /* SSRadioButtonsController.swift */,
+			);
+			name = RadioButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +143,7 @@
 				TargetAttributes = {
 					4C1A87811BC074B100C10262 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 3AS6VBNSX4;
 					};
 				};
 			};
@@ -124,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C10E65A1BC49A5A0092D9E3 /* Montserrat-Bold.otf in Resources */,
 				4C1A87931BC074B200C10262 /* LaunchScreen.storyboard in Resources */,
 				4C1A87901BC074B200C10262 /* Assets.xcassets in Resources */,
 				4C1A878B1BC074B200C10262 /* Main.storyboard in Resources */,
@@ -138,7 +185,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1A878E1BC074B200C10262 /* Mankato_Kiosk.xcdatamodeld in Sources */,
+				4C1EFB8C1BCDD5AD0046526C /* CustomScrollView.swift in Sources */,
+				4C6030D11BC1BB5900BF4E56 /* SSRadioButtonsController.swift in Sources */,
 				4C1A87881BC074B200C10262 /* ViewController.swift in Sources */,
+				4C6030D01BC1BB5900BF4E56 /* SSRadioButton.swift in Sources */,
+				4C1A879B1BC075D700C10262 /* SurveyViewController.swift in Sources */,
+				4C1A87A01BC07C5100C10262 /* SwiftyJSON.swift in Sources */,
+				4C1A879D1BC07A6400C10262 /* SurveyAdminViewController.swift in Sources */,
 				4C1A87861BC074B200C10262 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,7 +235,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: John Boucha (3AS6VBNSX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: John Boucha (3AS6VBNSX4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -227,7 +281,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: John Boucha (3AS6VBNSX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: johnaboucha@gmail.com (KJU493XNU4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -252,10 +307,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Mankato Kiosk/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnboucha.Mankato-Kiosk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -263,10 +322,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Mankato Kiosk/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnboucha.Mankato-Kiosk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -289,6 +352,7 @@
 				4C1A87991BC074B200C10262 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
