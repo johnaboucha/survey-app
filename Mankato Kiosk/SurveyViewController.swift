@@ -18,9 +18,11 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
     
     var arrayOfInputs:[AnyObject] = []
     
-    //var timer = NSTimer()
+    var timer = NSTimer()
     
     var noQuestionslabel = UILabel()
+    
+    var button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
         // start timer
         //
         
-        //timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "autoClose", userInfo: nil, repeats: false)
+        restartTimer()
         
         //
         // Create scrollview
@@ -58,9 +60,7 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "adjustForKeyboard:", name: UIKeyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: "adjustForKeyboard:", name: UIKeyboardWillChangeFrameNotification, object: nil)
-        
-        //scrollView.userInteractionEnabled = true
-        //view.userInteractionEnabled = true
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -102,11 +102,6 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
     
     override func viewWillAppear(animated: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        /*if let hasQuestions = defaults.boolForKey("QuestionsAvailable") as? AnyObject {
-            print(hasQuestions)
-        } else {
-            print("fail?")
-        }*/
         
         let hasQuestions = defaults.boolForKey("QuestionsAvailable")
         if (hasQuestions) {
@@ -125,20 +120,26 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
     
     @IBAction func adminCheck(sender: AnyObject) {
         
+        timer.invalidate()
+        
         let alertController = UIAlertController(title: "Admin Settings", message: "Please input password to continue:", preferredStyle: .Alert)
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
+            
+            
+            
             if let field = alertController.textFields![0] as? UITextField {
                 // check password
                 if (field.text == "8041") {
                     // password is good
-                    //self.timer.invalidate()
+                    
                     
                     self.performSegueWithIdentifier("adminSegue", sender:self)
 
                 } else {
                     // password failed
                     print("fail")
+                    //self.restartTimer()
                 }
                 
             } else {
@@ -146,7 +147,10 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in
+        
+            self.restartTimer()
+        }
         
         alertController.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "enter password"
@@ -172,7 +176,6 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
     
     
     func loadSurvey() {
-        //print("loading")
         
         noQuestionslabel.removeFromSuperview()
         
@@ -224,7 +227,7 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
                     myText = myText.stringByReplacingOccurrencesOfString("</p>", withString: "")
                     textLabel.text = myText
                     
-                    textLabel.numberOfLines = 0;
+                    textLabel.numberOfLines = 1;
                     textLabel.sizeToFit()
                     
                     
@@ -238,7 +241,7 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
                     myTextField.borderStyle = UITextBorderStyle.Line
 
                     myTextField.layer.borderColor = UIColor(red: 44.0/255, green: 62.0/255, blue: 80.0/255, alpha: 1.0).CGColor
-                    
+                    myTextField.font = UIFont(name: "Helvetica", size: CGFloat(22.0) )
                     
                     self.arrayOfInputs.append(myTextField)
                     self.scrollView.addSubview(myTextField)
@@ -251,6 +254,7 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
                     textView.backgroundColor = UIColor.whiteColor()
                     textView.layer.borderWidth = 1
                     textView.layer.borderColor = UIColor(red: 44.0/255, green: 62.0/255, blue: 80.0/255, alpha: 1.0).CGColor
+                    textView.font = UIFont(name: "Helvetica", size: CGFloat(22.0) )
                     
                     
                     self.scrollView.addSubview(textView)
@@ -321,7 +325,7 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
             
             heightCounter += 20
             
-            let button   = UIButton(type:UIButtonType.Custom) as UIButton
+            button   = UIButton(type:UIButtonType.Custom) as UIButton
             button.frame = CGRectMake(self.scrollView.bounds.width/2 - 127, heightCounter, 254, 78)
             //button.backgroundColor = UIColor(red: 24.0/255, green: 188.0/255, blue: 156.0/255, alpha: 1.0)
             
@@ -379,7 +383,6 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
                 
             } else if object is SSRadioButtonsController {
                 let tmpObject = object as! SSRadioButtonsController
-                //let tmpString = tmpObject.selectedButton()?.titleLabel?.text
                 if let tmpString = tmpObject.selectedButton()?.titleLabel?.text! {
                     answerString += "\(tmpString),"
                     print("found button")
@@ -397,10 +400,8 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
             //answerString.removeAtIndex(answerString.endIndex.advancedBy(-1))
         }
         
-        //NSUInteger numberOfOccurrences = [[yourString componentsSeparatedByString:@" "] count] - 1;
         let numOfOccurences = answerString.componentsSeparatedByString(",").count - 1
         
-        print("Occurences: \(numOfOccurences + 1)")
         
         var answers = [NSManagedObject]()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -421,7 +422,6 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
             print("Could not save \(error), \(error.userInfo)")
         }
         
-        print(answerString)
         
         // Alert user on success
         let alertController = UIAlertController(title: "Thanks!", message:
@@ -444,7 +444,6 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
                     
                     // if button is selected, deselect it
                     if let tmpButton = tmpObject.selectedButton() as! SSRadioButton! {
-                        //tmpObject.pressed(tmpButton)
                         
                         tmpButton.selected = false
                         
@@ -468,11 +467,53 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
         
         self.presentViewController(alertController, animated: true, completion: nil)
         
+        // Delay the dismissal by 15 seconds
+        let delay = 15.0 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            alertController.dismissViewControllerAnimated(true, completion: { () -> Void in
+                // do nothing
+                for object in self.arrayOfInputs {
+                    if object is UITextField {
+                        //object.text = ""
+                        let tmpObject = object as! UITextField
+                        tmpObject.text = ""
+                        
+                    } else if object is UITextView {
+                        let tmpObject = object as! UITextView
+                        tmpObject.text = ""
+                        
+                    } else if object is SSRadioButtonsController {
+                        let tmpObject = object as! SSRadioButtonsController
+                        
+                        // if button is selected, deselect it
+                        if let tmpButton = tmpObject.selectedButton() as! SSRadioButton! {
+                            
+                            tmpButton.selected = false
+                            
+                            // print("should work?")
+                        } else {
+                            // print("failed to assign button")
+                        }
+                        
+                        
+                        
+                    } else {
+                        // print("failed to create button controller")
+                    }
+                    
+                    
+                }
+            })
+            
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        })
+        
     }
     
 
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("end scroll")
+        restartTimer()
     }
 
     
@@ -480,28 +521,44 @@ class SurveyViewController: UIViewController, UIScrollViewDelegate, PassTouchesS
     
     func autoClose() {
         
+       print("closing")
+        
         
         let alertController = UIAlertController(title: "Warning", message:
             "Survey will close due to inactivity. Press button to continue entering data.", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: { (_) in
         
-            print("hi")
+            self.restartTimer()
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        
+        // Delay the dismissal by 15 seconds
+        let delay = 15.0 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            alertController.dismissViewControllerAnimated(true, completion: { () -> Void in
+                 self.submitSurvey(self.button)
+            })
+        })
         
  
     }
     
     func touchBegan() {
-        restartTimer()
+        //restartTimer()
     }
     
     func restartTimer() {
-        //self.timer.invalidate()
+        timer.invalidate()
         
-        //self.timer = NSTimer(timeInterval: 10.0, target: self, selector: "autoClose", userInfo: nil, repeats: false)
+        timer = NSTimer(timeInterval: 300.0, target: self, selector: "autoClose", userInfo: nil, repeats: false)
+         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        print("timer started")
     }
+    
+    
+
     
     
     
